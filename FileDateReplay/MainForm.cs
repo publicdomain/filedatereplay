@@ -50,7 +50,7 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnCollectFromFolderButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code   
+            // TODO Add code
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnReplayOnFolderButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code   
+            // TODO Add code
         }
 
         /// <summary>
@@ -90,7 +90,8 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code	
+            // Close program
+            this.Close();
         }
     }
 }
