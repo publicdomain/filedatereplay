@@ -9,6 +9,7 @@ namespace FileDateReplay
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.IO;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
@@ -17,6 +18,11 @@ namespace FileDateReplay
     /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// The file path date dictionary.
+        /// </summary>
+        Dictionary<string, KeyValuePair<DateTime, DateTime>> filePathDateDictionary = new Dictionary<string, KeyValuePair<DateTime, DateTime>>();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="T:FileDateReplay.MainForm"/> class.
         /// </summary>
@@ -50,7 +56,31 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnCollectFromFolderButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Show folder browser dialog
+            if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK && this.folderBrowserDialog.SelectedPath.Length > 0)
+            {
+                // Set selected path as string
+                string selectedPath = this.folderBrowserDialog.SelectedPath;
+
+                // Reset file path date dictionary
+                this.filePathDateDictionary.Clear();
+
+                // Populate file path dictionary
+                foreach (string filePath in Directory.GetFiles(selectedPath, "*", this.processSubfoldersToolStripMenuItem.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+                {
+                    // Set file name
+                    var fileName = filePath.Remove(0, selectedPath.Length + (selectedPath[selectedPath.Length - 1] == Path.DirectorySeparatorChar ? 0 : 1));
+
+                    // Set file info
+                    var fileInfo = new FileInfo(fileName);
+
+                    // Add to dictionary
+                    this.filePathDateDictionary.Add(fileName, new KeyValuePair<DateTime, DateTime>(fileInfo.CreationTimeUtc, fileInfo.LastWriteTimeUtc));
+                }
+
+                // Update collected count
+                this.collectedCountToolStripStatusLabel.Text = this.filePathDateDictionary.Count.ToString();
+            }
         }
 
         /// <summary>
