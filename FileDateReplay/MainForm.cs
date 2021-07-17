@@ -78,6 +78,9 @@ namespace FileDateReplay
                     this.filePathDateDictionary.Add(fileName, new KeyValuePair<DateTime, DateTime>(fileInfo.CreationTimeUtc, fileInfo.LastWriteTimeUtc));
                 }
 
+                // Update collection name
+                this.collectionNameLabel.Text = Path.GetFileName(selectedPath);
+
                 // Update collected count
                 this.collectedCountToolStripStatusLabel.Text = this.filePathDateDictionary.Count.ToString();
             }
