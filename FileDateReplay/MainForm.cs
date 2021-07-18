@@ -68,14 +68,14 @@ namespace FileDateReplay
                 // Populate file path dictionary
                 foreach (string filePath in Directory.GetFiles(selectedPath, "*", this.processSubfoldersToolStripMenuItem.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
                 {
-                    // Set file name
-                    var fileName = filePath.Remove(0, selectedPath.Length + (selectedPath[selectedPath.Length - 1] == Path.DirectorySeparatorChar ? 0 : 1));
+                    // Set relative file path
+                    string relativeFilePath = filePath.Remove(0, selectedPath.Length + (selectedPath[selectedPath.Length - 1] == Path.DirectorySeparatorChar ? 0 : 1));
 
                     // Set file info
-                    var fileInfo = new FileInfo(fileName);
+                    FileInfo fileInfo = new FileInfo(filePath);
 
                     // Add to dictionary
-                    this.filePathDateDictionary.Add(fileName, new KeyValuePair<DateTime, DateTime>(fileInfo.CreationTimeUtc, fileInfo.LastWriteTimeUtc));
+                    this.filePathDateDictionary.Add(relativeFilePath, new KeyValuePair<DateTime, DateTime>(fileInfo.CreationTimeUtc, fileInfo.LastWriteTimeUtc));
                 }
 
                 // Update collection name
@@ -93,8 +93,52 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnReplayOnFolderButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check there's something to work with
+            if (this.filePathDateDictionary.Count == 0)
+            {
+                // Advise user
+                MessageBox.Show("Please populate the file collection to replay.", "Empty collection", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                // Halt flow
+                return;
+            }
+
+            // Declare replayed count
+            int replayedCount = 0;
+
+            // Show folder browser dialog
+            if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK && this.folderBrowserDialog.SelectedPath.Length > 0)
+            {
+                // Set selected path as string
+                string selectedPath = this.folderBrowserDialog.SelectedPath;
+
+                // Iterate files
+                foreach (string filePath in Directory.GetFiles(selectedPath, "*", this.processSubfoldersToolStripMenuItem.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly))
+                {
+                    // Set relative file path
+                    string relativeFilePath = filePath.Remove(0, selectedPath.Length + (selectedPath[selectedPath.Length - 1] == Path.DirectorySeparatorChar ? 0 : 1));
+
+                    // Check for a match
+                    if (this.filePathDateDictionary.ContainsKey(relativeFilePath))
+                    {
+                        /* Replay dates */
+
+                        // Creation
+                        File.SetCreationTimeUtc(Path.Combine(selectedPath, relativeFilePath), this.filePathDateDictionary[relativeFilePath].Key);
+
+                        // Last write
+                        File.SetLastWriteTimeUtc(Path.Combine(selectedPath, relativeFilePath), this.filePathDateDictionary[relativeFilePath].Value);
+
+                        // Raise replayed count
+                        replayedCount++;
+                    }
+                }
+            }
+
+            // Update replayed count
+            this.replayedCountToolStripStatusLabel.Text = this.filePathDateDictionary.Count.ToString();
         }
+
 
         /// <summary>
         /// Handles the new tool strip menu item click event.
