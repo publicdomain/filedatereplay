@@ -50,6 +50,8 @@ namespace FileDateReplay
         	this.replayedCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.mainToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
+        	this.collectedToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+        	this.collectedCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
         	this.sourceCodeGithubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,8 +76,6 @@ namespace FileDateReplay
         	this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
         	this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-        	this.collectedToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-        	this.collectedCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.mainTableLayoutPanel.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
         	this.mainMenuStrip.SuspendLayout();
@@ -219,11 +219,25 @@ namespace FileDateReplay
         	this.mainStatusStrip.SizingGrip = false;
         	this.mainStatusStrip.TabIndex = 29;
         	// 
+        	// collectedToolStripStatusLabel
+        	// 
+        	this.collectedToolStripStatusLabel.Name = "collectedToolStripStatusLabel";
+        	this.collectedToolStripStatusLabel.Size = new System.Drawing.Size(60, 17);
+        	this.collectedToolStripStatusLabel.Text = "Collected:";
+        	// 
+        	// collectedCountToolStripStatusLabel
+        	// 
+        	this.collectedCountToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+        	this.collectedCountToolStripStatusLabel.Name = "collectedCountToolStripStatusLabel";
+        	this.collectedCountToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
+        	this.collectedCountToolStripStatusLabel.Text = "0";
+        	// 
         	// aboutToolStripMenuItem
         	// 
         	this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
         	this.aboutToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.aboutToolStripMenuItem.Text = "&About...";
+        	this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAboutToolStripMenuItemClick);
         	// 
         	// toolStripSeparator2
         	// 
@@ -236,12 +250,14 @@ namespace FileDateReplay
         	this.sourceCodeGithubcomToolStripMenuItem.Name = "sourceCodeGithubcomToolStripMenuItem";
         	this.sourceCodeGithubcomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.sourceCodeGithubcomToolStripMenuItem.Text = "Source code @ Github.com";
+        	this.sourceCodeGithubcomToolStripMenuItem.Click += new System.EventHandler(this.OnSourceCodeGithubcomToolStripMenuItemClick);
         	// 
         	// weeklyReleasesPublicDomainWeeklycomToolStripMenuItem
         	// 
         	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Name = "weeklyReleasesPublicDomainWeeklycomToolStripMenuItem";
         	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Text = "&Weekly releases @ PublicDomainWeekly.com";
+        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Click += new System.EventHandler(this.OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick);
         	// 
         	// helpToolStripMenuItem
         	// 
@@ -261,6 +277,7 @@ namespace FileDateReplay
         	this.originalThreadDonationCodercomToolStripMenuItem.Name = "originalThreadDonationCodercomToolStripMenuItem";
         	this.originalThreadDonationCodercomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
         	this.originalThreadDonationCodercomToolStripMenuItem.Text = "&Original thread @ DonationCoder.com";
+        	this.originalThreadDonationCodercomToolStripMenuItem.Click += new System.EventHandler(this.OnOriginalThreadDonationCodercomToolStripMenuItemClick);
         	// 
         	// alwaysOnTopToolStripMenuItem
         	// 
@@ -355,7 +372,7 @@ namespace FileDateReplay
         	this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
         	this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
         	this.saveToolStripMenuItem.Text = "&Save";
-        	this.saveToolStripMenuItem.Visible = false;
+        	this.saveToolStripMenuItem.Click += new System.EventHandler(this.OnSaveToolStripMenuItemClick);
         	// 
         	// saveAsToolStripMenuItem
         	// 
@@ -393,7 +410,6 @@ namespace FileDateReplay
         	// 
         	this.toolStripSeparator3.Name = "toolStripSeparator3";
         	this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
-        	this.toolStripSeparator3.Visible = false;
         	// 
         	// exitToolStripMenuItem
         	// 
@@ -402,18 +418,15 @@ namespace FileDateReplay
         	this.exitToolStripMenuItem.Text = "E&xit";
         	this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExitToolStripMenuItemClick);
         	// 
-        	// collectedToolStripStatusLabel
+        	// openFileDialog
         	// 
-        	this.collectedToolStripStatusLabel.Name = "collectedToolStripStatusLabel";
-        	this.collectedToolStripStatusLabel.Size = new System.Drawing.Size(60, 17);
-        	this.collectedToolStripStatusLabel.Text = "Collected:";
+        	this.openFileDialog.DefaultExt = "txt";
+        	this.openFileDialog.Filter = "TXT Files|*.txt|All files (*.*)|*.*";
         	// 
-        	// collectedCountToolStripStatusLabel
+        	// saveFileDialog
         	// 
-        	this.collectedCountToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-        	this.collectedCountToolStripStatusLabel.Name = "collectedCountToolStripStatusLabel";
-        	this.collectedCountToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
-        	this.collectedCountToolStripStatusLabel.Text = "0";
+        	this.saveFileDialog.DefaultExt = "txt";
+        	this.saveFileDialog.Filter = "TXT Files|*.txt|All files (*.*)|*.*";
         	// 
         	// MainForm
         	// 
