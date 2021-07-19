@@ -9,6 +9,7 @@ namespace FileDateReplay
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Globalization;
     using System.IO;
     using System.Text;
     using System.Text.RegularExpressions;
@@ -143,17 +144,6 @@ namespace FileDateReplay
             this.replayedCountToolStripStatusLabel.Text = this.filePathDateDictionary.Count.ToString();
         }
 
-
-        /// <summary>
-        /// Handles the new tool strip menu item click event.
-        /// </summary>
-        /// <param name="sender">Sender object.</param>
-        /// <param name="e">Event arguments.</param>
-        private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            // TODO Add code	
-        }
-
         /// <summary>
         /// Handles the open tool strip menu item click event.
         /// </summary>
@@ -161,7 +151,36 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnOpenToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Show open file dialog
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // Clear dictionary
+                    this.filePathDateDictionary.Clear();
+
+                    // Read all lines 
+                    foreach (var line in File.ReadAllLines(this.openFileDialog.FileName))
+                    {
+                        // Split line by tabs
+                        string[] columns = line.Split(new char[] { '\t' });
+
+                        // Add to dictionary
+                        this.filePathDateDictionary.Add(columns[0], new KeyValuePair<DateTime, DateTime>(DateTime.Parse(columns[1], CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal), DateTime.Parse(columns[2], CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal)));
+
+                        // Update collection name
+                        this.collectionNameLabel.Text = Path.GetFileNameWithoutExtension(this.openFileDialog.FileName);
+
+                        // Update collected count
+                        this.collectedCountToolStripStatusLabel.Text = this.filePathDateDictionary.Count.ToString();
+                    }
+                }
+                catch (Exception exception)
+                {
+                    // Inform user
+                    MessageBox.Show($"Error when opening \"{Path.GetFileName(this.openFileDialog.FileName)}\":{Environment.NewLine}{exception.Message}", "Open file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         /// <summary>
@@ -211,6 +230,16 @@ namespace FileDateReplay
                 // Inform user
                 MessageBox.Show($"Saved {this.filePathDateDictionary.Count} items to \"{Path.GetFileName(this.saveFileDialog.FileName)}\"", "File saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        /// <summary>
+        /// Handles the new tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code    
         }
 
         /// <summary>
