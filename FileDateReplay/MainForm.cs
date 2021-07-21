@@ -8,6 +8,7 @@ namespace FileDateReplay
     // Directives
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Globalization;
     using System.IO;
@@ -273,7 +274,8 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Open current website
+            Process.Start("https://publicdomainweekly.com");
         }
 
         /// <summary>
