@@ -36,418 +36,418 @@ namespace FileDateReplay
         /// </summary>
         private void InitializeComponent()
         {
-        	System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-        	this.replayOnFolderButton = new System.Windows.Forms.Button();
-        	this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-        	this.collectFromFolderButton = new System.Windows.Forms.Button();
-        	this.regexPatternLabel = new System.Windows.Forms.Label();
-        	this.regexReplacementLabel = new System.Windows.Forms.Label();
-        	this.regexPatternTextBox = new System.Windows.Forms.TextBox();
-        	this.regexReplacementTextBox = new System.Windows.Forms.TextBox();
-        	this.collectionTextLabel = new System.Windows.Forms.Label();
-        	this.collectionNameLabel = new System.Windows.Forms.Label();
-        	this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-        	this.replayedCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-        	this.mainToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-        	this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
-        	this.collectedToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-        	this.collectedCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-        	this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-        	this.sourceCodeGithubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.processSubfoldersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
-        	this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-        	this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-        	this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-        	this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-        	this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-        	this.mainTableLayoutPanel.SuspendLayout();
-        	this.mainStatusStrip.SuspendLayout();
-        	this.mainMenuStrip.SuspendLayout();
-        	this.SuspendLayout();
-        	// 
-        	// replayOnFolderButton
-        	// 
-        	this.mainTableLayoutPanel.SetColumnSpan(this.replayOnFolderButton, 2);
-        	this.replayOnFolderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.replayOnFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-        	this.replayOnFolderButton.Location = new System.Drawing.Point(4, 131);
-        	this.replayOnFolderButton.Margin = new System.Windows.Forms.Padding(4);
-        	this.replayOnFolderButton.Name = "replayOnFolderButton";
-        	this.replayOnFolderButton.Size = new System.Drawing.Size(249, 69);
-        	this.replayOnFolderButton.TabIndex = 5;
-        	this.replayOnFolderButton.Text = "&Replay on folder";
-        	this.replayOnFolderButton.UseVisualStyleBackColor = true;
-        	this.replayOnFolderButton.Click += new System.EventHandler(this.OnReplayOnFolderButtonClick);
-        	// 
-        	// mainTableLayoutPanel
-        	// 
-        	this.mainTableLayoutPanel.ColumnCount = 2;
-        	this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.mainTableLayoutPanel.Controls.Add(this.collectFromFolderButton, 0, 0);
-        	this.mainTableLayoutPanel.Controls.Add(this.replayOnFolderButton, 0, 3);
-        	this.mainTableLayoutPanel.Controls.Add(this.regexPatternLabel, 0, 1);
-        	this.mainTableLayoutPanel.Controls.Add(this.regexReplacementLabel, 0, 2);
-        	this.mainTableLayoutPanel.Controls.Add(this.regexPatternTextBox, 1, 1);
-        	this.mainTableLayoutPanel.Controls.Add(this.regexReplacementTextBox, 1, 2);
-        	this.mainTableLayoutPanel.Controls.Add(this.collectionTextLabel, 0, 4);
-        	this.mainTableLayoutPanel.Controls.Add(this.collectionNameLabel, 1, 4);
-        	this.mainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.mainTableLayoutPanel.Location = new System.Drawing.Point(0, 24);
-        	this.mainTableLayoutPanel.Name = "mainTableLayoutPanel";
-        	this.mainTableLayoutPanel.RowCount = 5;
-        	this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-        	this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-        	this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-        	this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-        	this.mainTableLayoutPanel.Size = new System.Drawing.Size(257, 230);
-        	this.mainTableLayoutPanel.TabIndex = 31;
-        	// 
-        	// collectFromFolderButton
-        	// 
-        	this.mainTableLayoutPanel.SetColumnSpan(this.collectFromFolderButton, 2);
-        	this.collectFromFolderButton.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.collectFromFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.collectFromFolderButton.Location = new System.Drawing.Point(4, 4);
-        	this.collectFromFolderButton.Margin = new System.Windows.Forms.Padding(4);
-        	this.collectFromFolderButton.Name = "collectFromFolderButton";
-        	this.collectFromFolderButton.Size = new System.Drawing.Size(249, 69);
-        	this.collectFromFolderButton.TabIndex = 0;
-        	this.collectFromFolderButton.Text = "&Collect from folder";
-        	this.collectFromFolderButton.UseVisualStyleBackColor = true;
-        	this.collectFromFolderButton.Click += new System.EventHandler(this.OnCollectFromFolderButtonClick);
-        	// 
-        	// regexPatternLabel
-        	// 
-        	this.regexPatternLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.regexPatternLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.regexPatternLabel.Location = new System.Drawing.Point(3, 77);
-        	this.regexPatternLabel.Name = "regexPatternLabel";
-        	this.regexPatternLabel.Size = new System.Drawing.Size(122, 25);
-        	this.regexPatternLabel.TabIndex = 1;
-        	this.regexPatternLabel.Text = "Regex &pattern:";
-        	this.regexPatternLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        	// 
-        	// regexReplacementLabel
-        	// 
-        	this.regexReplacementLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.regexReplacementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.regexReplacementLabel.Location = new System.Drawing.Point(3, 102);
-        	this.regexReplacementLabel.Name = "regexReplacementLabel";
-        	this.regexReplacementLabel.Size = new System.Drawing.Size(122, 25);
-        	this.regexReplacementLabel.TabIndex = 3;
-        	this.regexReplacementLabel.Text = "Regex r&eplacement:";
-        	this.regexReplacementLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        	// 
-        	// regexPatternTextBox
-        	// 
-        	this.regexPatternTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.regexPatternTextBox.Location = new System.Drawing.Point(131, 80);
-        	this.regexPatternTextBox.Name = "regexPatternTextBox";
-        	this.regexPatternTextBox.Size = new System.Drawing.Size(123, 20);
-        	this.regexPatternTextBox.TabIndex = 2;
-        	// 
-        	// regexReplacementTextBox
-        	// 
-        	this.regexReplacementTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.regexReplacementTextBox.Location = new System.Drawing.Point(131, 105);
-        	this.regexReplacementTextBox.Name = "regexReplacementTextBox";
-        	this.regexReplacementTextBox.Size = new System.Drawing.Size(123, 20);
-        	this.regexReplacementTextBox.TabIndex = 4;
-        	// 
-        	// collectionTextLabel
-        	// 
-        	this.collectionTextLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.collectionTextLabel.Location = new System.Drawing.Point(3, 204);
-        	this.collectionTextLabel.Name = "collectionTextLabel";
-        	this.collectionTextLabel.Size = new System.Drawing.Size(122, 26);
-        	this.collectionTextLabel.TabIndex = 6;
-        	this.collectionTextLabel.Text = "Collection name:";
-        	this.collectionTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-        	// 
-        	// collectionNameLabel
-        	// 
-        	this.collectionNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-        	this.collectionNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.collectionNameLabel.Location = new System.Drawing.Point(131, 204);
-        	this.collectionNameLabel.Name = "collectionNameLabel";
-        	this.collectionNameLabel.Size = new System.Drawing.Size(123, 26);
-        	this.collectionNameLabel.TabIndex = 7;
-        	this.collectionNameLabel.Text = "Open or collect..";
-        	this.collectionNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-        	// 
-        	// replayedCountToolStripStatusLabel
-        	// 
-        	this.replayedCountToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.replayedCountToolStripStatusLabel.Name = "replayedCountToolStripStatusLabel";
-        	this.replayedCountToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
-        	this.replayedCountToolStripStatusLabel.Text = "0";
-        	// 
-        	// mainToolStripStatusLabel
-        	// 
-        	this.mainToolStripStatusLabel.Name = "mainToolStripStatusLabel";
-        	this.mainToolStripStatusLabel.Size = new System.Drawing.Size(58, 17);
-        	this.mainToolStripStatusLabel.Text = "Replayed:";
-        	// 
-        	// mainStatusStrip
-        	// 
-        	this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-        	        	        	this.collectedToolStripStatusLabel,
-        	        	        	this.collectedCountToolStripStatusLabel,
-        	        	        	this.mainToolStripStatusLabel,
-        	        	        	this.replayedCountToolStripStatusLabel});
-        	this.mainStatusStrip.Location = new System.Drawing.Point(0, 254);
-        	this.mainStatusStrip.Name = "mainStatusStrip";
-        	this.mainStatusStrip.Size = new System.Drawing.Size(257, 22);
-        	this.mainStatusStrip.SizingGrip = false;
-        	this.mainStatusStrip.TabIndex = 29;
-        	// 
-        	// collectedToolStripStatusLabel
-        	// 
-        	this.collectedToolStripStatusLabel.Name = "collectedToolStripStatusLabel";
-        	this.collectedToolStripStatusLabel.Size = new System.Drawing.Size(60, 17);
-        	this.collectedToolStripStatusLabel.Text = "Collected:";
-        	// 
-        	// collectedCountToolStripStatusLabel
-        	// 
-        	this.collectedCountToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-        	this.collectedCountToolStripStatusLabel.Name = "collectedCountToolStripStatusLabel";
-        	this.collectedCountToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
-        	this.collectedCountToolStripStatusLabel.Text = "0";
-        	// 
-        	// aboutToolStripMenuItem
-        	// 
-        	this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-        	this.aboutToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
-        	this.aboutToolStripMenuItem.Text = "&About...";
-        	this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAboutToolStripMenuItemClick);
-        	// 
-        	// toolStripSeparator2
-        	// 
-        	this.toolStripSeparator2.Name = "toolStripSeparator2";
-        	this.toolStripSeparator2.Size = new System.Drawing.Size(310, 6);
-        	// 
-        	// sourceCodeGithubcomToolStripMenuItem
-        	// 
-        	this.sourceCodeGithubcomToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sourceCodeGithubcomToolStripMenuItem.Image")));
-        	this.sourceCodeGithubcomToolStripMenuItem.Name = "sourceCodeGithubcomToolStripMenuItem";
-        	this.sourceCodeGithubcomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
-        	this.sourceCodeGithubcomToolStripMenuItem.Text = "Source code @ Github.com";
-        	this.sourceCodeGithubcomToolStripMenuItem.Click += new System.EventHandler(this.OnSourceCodeGithubcomToolStripMenuItemClick);
-        	// 
-        	// weeklyReleasesPublicDomainWeeklycomToolStripMenuItem
-        	// 
-        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Name = "weeklyReleasesPublicDomainWeeklycomToolStripMenuItem";
-        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
-        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Text = "&Weekly releases @ PublicDomainWeekly.com";
-        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Click += new System.EventHandler(this.OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick);
-        	// 
-        	// helpToolStripMenuItem
-        	// 
-        	this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-        	        	        	this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem,
-        	        	        	this.originalThreadDonationCodercomToolStripMenuItem,
-        	        	        	this.sourceCodeGithubcomToolStripMenuItem,
-        	        	        	this.toolStripSeparator2,
-        	        	        	this.aboutToolStripMenuItem});
-        	this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-        	this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-        	this.helpToolStripMenuItem.Text = "&Help";
-        	// 
-        	// originalThreadDonationCodercomToolStripMenuItem
-        	// 
-        	this.originalThreadDonationCodercomToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("originalThreadDonationCodercomToolStripMenuItem.Image")));
-        	this.originalThreadDonationCodercomToolStripMenuItem.Name = "originalThreadDonationCodercomToolStripMenuItem";
-        	this.originalThreadDonationCodercomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
-        	this.originalThreadDonationCodercomToolStripMenuItem.Text = "&Original thread @ DonationCoder.com";
-        	this.originalThreadDonationCodercomToolStripMenuItem.Click += new System.EventHandler(this.OnOriginalThreadDonationCodercomToolStripMenuItemClick);
-        	// 
-        	// alwaysOnTopToolStripMenuItem
-        	// 
-        	this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-        	this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-        	this.alwaysOnTopToolStripMenuItem.Text = "&Always on top";
-        	// 
-        	// optionsToolStripMenuItem
-        	// 
-        	this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-        	        	        	this.alwaysOnTopToolStripMenuItem,
-        	        	        	this.processSubfoldersToolStripMenuItem});
-        	this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-        	this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-        	this.optionsToolStripMenuItem.Text = "&Options";
-        	this.optionsToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnOptionsToolStripMenuItemDropDownItemClicked);
-        	// 
-        	// processSubfoldersToolStripMenuItem
-        	// 
-        	this.processSubfoldersToolStripMenuItem.Checked = true;
-        	this.processSubfoldersToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-        	this.processSubfoldersToolStripMenuItem.Name = "processSubfoldersToolStripMenuItem";
-        	this.processSubfoldersToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-        	this.processSubfoldersToolStripMenuItem.Text = "&Process subfolders";
-        	// 
-        	// minimizeToolStripMenuItem
-        	// 
-        	this.minimizeToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-        	this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
-        	this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
-        	this.minimizeToolStripMenuItem.Visible = false;
-        	// 
-        	// mainMenuStrip
-        	// 
-        	this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-        	        	        	this.minimizeToolStripMenuItem,
-        	        	        	this.fileToolStripMenuItem,
-        	        	        	this.optionsToolStripMenuItem,
-        	        	        	this.helpToolStripMenuItem});
-        	this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
-        	this.mainMenuStrip.Name = "mainMenuStrip";
-        	this.mainMenuStrip.Size = new System.Drawing.Size(257, 24);
-        	this.mainMenuStrip.TabIndex = 30;
-        	// 
-        	// fileToolStripMenuItem
-        	// 
-        	this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-        	        	        	this.newToolStripMenuItem,
-        	        	        	this.openToolStripMenuItem,
-        	        	        	this.toolStripSeparator,
-        	        	        	this.saveToolStripMenuItem,
-        	        	        	this.saveAsToolStripMenuItem,
-        	        	        	this.toolStripSeparator1,
-        	        	        	this.printToolStripMenuItem,
-        	        	        	this.printPreviewToolStripMenuItem,
-        	        	        	this.toolStripSeparator3,
-        	        	        	this.exitToolStripMenuItem});
-        	this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-        	this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-        	this.fileToolStripMenuItem.Text = "&File";
-        	// 
-        	// newToolStripMenuItem
-        	// 
-        	this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
-        	this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-        	this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-        	this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-        	this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        	this.newToolStripMenuItem.Text = "&New";
-        	this.newToolStripMenuItem.Click += new System.EventHandler(this.OnNewToolStripMenuItemClick);
-        	// 
-        	// openToolStripMenuItem
-        	// 
-        	this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
-        	this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-        	this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-        	this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-        	this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        	this.openToolStripMenuItem.Text = "&Open";
-        	this.openToolStripMenuItem.Click += new System.EventHandler(this.OnOpenToolStripMenuItemClick);
-        	// 
-        	// toolStripSeparator
-        	// 
-        	this.toolStripSeparator.Name = "toolStripSeparator";
-        	this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
-        	// 
-        	// saveToolStripMenuItem
-        	// 
-        	this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
-        	this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-        	this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-        	this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-        	this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        	this.saveToolStripMenuItem.Text = "&Save";
-        	this.saveToolStripMenuItem.Click += new System.EventHandler(this.OnSaveToolStripMenuItemClick);
-        	// 
-        	// saveAsToolStripMenuItem
-        	// 
-        	this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-        	this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        	this.saveAsToolStripMenuItem.Text = "Save &As";
-        	this.saveAsToolStripMenuItem.Visible = false;
-        	// 
-        	// toolStripSeparator1
-        	// 
-        	this.toolStripSeparator1.Name = "toolStripSeparator1";
-        	this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
-        	this.toolStripSeparator1.Visible = false;
-        	// 
-        	// printToolStripMenuItem
-        	// 
-        	this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
-        	this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-        	this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-        	this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-        	this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        	this.printToolStripMenuItem.Text = "&Print";
-        	this.printToolStripMenuItem.Visible = false;
-        	// 
-        	// printPreviewToolStripMenuItem
-        	// 
-        	this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
-        	this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-        	this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-        	this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        	this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
-        	this.printPreviewToolStripMenuItem.Visible = false;
-        	// 
-        	// toolStripSeparator3
-        	// 
-        	this.toolStripSeparator3.Name = "toolStripSeparator3";
-        	this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
-        	// 
-        	// exitToolStripMenuItem
-        	// 
-        	this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-        	this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-        	this.exitToolStripMenuItem.Text = "E&xit";
-        	this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExitToolStripMenuItemClick);
-        	// 
-        	// openFileDialog
-        	// 
-        	this.openFileDialog.DefaultExt = "txt";
-        	this.openFileDialog.Filter = "TXT Files|*.txt|All files (*.*)|*.*";
-        	// 
-        	// saveFileDialog
-        	// 
-        	this.saveFileDialog.DefaultExt = "txt";
-        	this.saveFileDialog.Filter = "TXT Files|*.txt|All files (*.*)|*.*";
-        	// 
-        	// MainForm
-        	// 
-        	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-        	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        	this.ClientSize = new System.Drawing.Size(257, 276);
-        	this.Controls.Add(this.mainTableLayoutPanel);
-        	this.Controls.Add(this.mainStatusStrip);
-        	this.Controls.Add(this.mainMenuStrip);
-        	this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-        	this.Name = "MainForm";
-        	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        	this.Text = "FileDateReplay";
-        	this.mainTableLayoutPanel.ResumeLayout(false);
-        	this.mainTableLayoutPanel.PerformLayout();
-        	this.mainStatusStrip.ResumeLayout(false);
-        	this.mainStatusStrip.PerformLayout();
-        	this.mainMenuStrip.ResumeLayout(false);
-        	this.mainMenuStrip.PerformLayout();
-        	this.ResumeLayout(false);
-        	this.PerformLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.replayOnFolderButton = new System.Windows.Forms.Button();
+            this.mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.collectFromFolderButton = new System.Windows.Forms.Button();
+            this.regexPatternLabel = new System.Windows.Forms.Label();
+            this.regexReplacementLabel = new System.Windows.Forms.Label();
+            this.regexPatternTextBox = new System.Windows.Forms.TextBox();
+            this.regexReplacementTextBox = new System.Windows.Forms.TextBox();
+            this.collectionTextLabel = new System.Windows.Forms.Label();
+            this.collectionNameLabel = new System.Windows.Forms.Label();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.replayedCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mainToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.collectedToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.collectedCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.sourceCodeGithubcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processSubfoldersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.mainTableLayoutPanel.SuspendLayout();
+            this.mainStatusStrip.SuspendLayout();
+            this.mainMenuStrip.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // replayOnFolderButton
+            // 
+            this.mainTableLayoutPanel.SetColumnSpan(this.replayOnFolderButton, 2);
+            this.replayOnFolderButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replayOnFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.replayOnFolderButton.Location = new System.Drawing.Point(4, 131);
+            this.replayOnFolderButton.Margin = new System.Windows.Forms.Padding(4);
+            this.replayOnFolderButton.Name = "replayOnFolderButton";
+            this.replayOnFolderButton.Size = new System.Drawing.Size(249, 69);
+            this.replayOnFolderButton.TabIndex = 5;
+            this.replayOnFolderButton.Text = "&Replay on folder";
+            this.replayOnFolderButton.UseVisualStyleBackColor = true;
+            this.replayOnFolderButton.Click += new System.EventHandler(this.OnReplayOnFolderButtonClick);
+            // 
+            // mainTableLayoutPanel
+            // 
+            this.mainTableLayoutPanel.ColumnCount = 2;
+            this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.mainTableLayoutPanel.Controls.Add(this.collectFromFolderButton, 0, 0);
+            this.mainTableLayoutPanel.Controls.Add(this.replayOnFolderButton, 0, 3);
+            this.mainTableLayoutPanel.Controls.Add(this.regexPatternLabel, 0, 1);
+            this.mainTableLayoutPanel.Controls.Add(this.regexReplacementLabel, 0, 2);
+            this.mainTableLayoutPanel.Controls.Add(this.regexPatternTextBox, 1, 1);
+            this.mainTableLayoutPanel.Controls.Add(this.regexReplacementTextBox, 1, 2);
+            this.mainTableLayoutPanel.Controls.Add(this.collectionTextLabel, 0, 4);
+            this.mainTableLayoutPanel.Controls.Add(this.collectionNameLabel, 1, 4);
+            this.mainTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainTableLayoutPanel.Location = new System.Drawing.Point(0, 24);
+            this.mainTableLayoutPanel.Name = "mainTableLayoutPanel";
+            this.mainTableLayoutPanel.RowCount = 5;
+            this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.mainTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.mainTableLayoutPanel.Size = new System.Drawing.Size(257, 230);
+            this.mainTableLayoutPanel.TabIndex = 31;
+            // 
+            // collectFromFolderButton
+            // 
+            this.mainTableLayoutPanel.SetColumnSpan(this.collectFromFolderButton, 2);
+            this.collectFromFolderButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.collectFromFolderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collectFromFolderButton.Location = new System.Drawing.Point(4, 4);
+            this.collectFromFolderButton.Margin = new System.Windows.Forms.Padding(4);
+            this.collectFromFolderButton.Name = "collectFromFolderButton";
+            this.collectFromFolderButton.Size = new System.Drawing.Size(249, 69);
+            this.collectFromFolderButton.TabIndex = 0;
+            this.collectFromFolderButton.Text = "&Collect from folder";
+            this.collectFromFolderButton.UseVisualStyleBackColor = true;
+            this.collectFromFolderButton.Click += new System.EventHandler(this.OnCollectFromFolderButtonClick);
+            // 
+            // regexPatternLabel
+            // 
+            this.regexPatternLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.regexPatternLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regexPatternLabel.Location = new System.Drawing.Point(3, 77);
+            this.regexPatternLabel.Name = "regexPatternLabel";
+            this.regexPatternLabel.Size = new System.Drawing.Size(122, 25);
+            this.regexPatternLabel.TabIndex = 1;
+            this.regexPatternLabel.Text = "Regex &pattern:";
+            this.regexPatternLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // regexReplacementLabel
+            // 
+            this.regexReplacementLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.regexReplacementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.regexReplacementLabel.Location = new System.Drawing.Point(3, 102);
+            this.regexReplacementLabel.Name = "regexReplacementLabel";
+            this.regexReplacementLabel.Size = new System.Drawing.Size(122, 25);
+            this.regexReplacementLabel.TabIndex = 3;
+            this.regexReplacementLabel.Text = "Regex r&eplacement:";
+            this.regexReplacementLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // regexPatternTextBox
+            // 
+            this.regexPatternTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.regexPatternTextBox.Location = new System.Drawing.Point(131, 80);
+            this.regexPatternTextBox.Name = "regexPatternTextBox";
+            this.regexPatternTextBox.Size = new System.Drawing.Size(123, 20);
+            this.regexPatternTextBox.TabIndex = 2;
+            // 
+            // regexReplacementTextBox
+            // 
+            this.regexReplacementTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.regexReplacementTextBox.Location = new System.Drawing.Point(131, 105);
+            this.regexReplacementTextBox.Name = "regexReplacementTextBox";
+            this.regexReplacementTextBox.Size = new System.Drawing.Size(123, 20);
+            this.regexReplacementTextBox.TabIndex = 4;
+            // 
+            // collectionTextLabel
+            // 
+            this.collectionTextLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.collectionTextLabel.Location = new System.Drawing.Point(3, 204);
+            this.collectionTextLabel.Name = "collectionTextLabel";
+            this.collectionTextLabel.Size = new System.Drawing.Size(122, 26);
+            this.collectionTextLabel.TabIndex = 6;
+            this.collectionTextLabel.Text = "Collection name:";
+            this.collectionTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // collectionNameLabel
+            // 
+            this.collectionNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.collectionNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collectionNameLabel.Location = new System.Drawing.Point(131, 204);
+            this.collectionNameLabel.Name = "collectionNameLabel";
+            this.collectionNameLabel.Size = new System.Drawing.Size(123, 26);
+            this.collectionNameLabel.TabIndex = 7;
+            this.collectionNameLabel.Text = "Open or collect...";
+            this.collectionNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // replayedCountToolStripStatusLabel
+            // 
+            this.replayedCountToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.replayedCountToolStripStatusLabel.Name = "replayedCountToolStripStatusLabel";
+            this.replayedCountToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
+            this.replayedCountToolStripStatusLabel.Text = "0";
+            // 
+            // mainToolStripStatusLabel
+            // 
+            this.mainToolStripStatusLabel.Name = "mainToolStripStatusLabel";
+            this.mainToolStripStatusLabel.Size = new System.Drawing.Size(58, 17);
+            this.mainToolStripStatusLabel.Text = "Replayed:";
+            // 
+            // mainStatusStrip
+            // 
+            this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                                    this.collectedToolStripStatusLabel,
+                                    this.collectedCountToolStripStatusLabel,
+                                    this.mainToolStripStatusLabel,
+                                    this.replayedCountToolStripStatusLabel});
+            this.mainStatusStrip.Location = new System.Drawing.Point(0, 254);
+            this.mainStatusStrip.Name = "mainStatusStrip";
+            this.mainStatusStrip.Size = new System.Drawing.Size(257, 22);
+            this.mainStatusStrip.SizingGrip = false;
+            this.mainStatusStrip.TabIndex = 29;
+            // 
+            // collectedToolStripStatusLabel
+            // 
+            this.collectedToolStripStatusLabel.Name = "collectedToolStripStatusLabel";
+            this.collectedToolStripStatusLabel.Size = new System.Drawing.Size(60, 17);
+            this.collectedToolStripStatusLabel.Text = "Collected:";
+            // 
+            // collectedCountToolStripStatusLabel
+            // 
+            this.collectedCountToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.collectedCountToolStripStatusLabel.Name = "collectedCountToolStripStatusLabel";
+            this.collectedCountToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
+            this.collectedCountToolStripStatusLabel.Text = "0";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+            this.aboutToolStripMenuItem.Text = "&About...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnAboutToolStripMenuItemClick);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(310, 6);
+            // 
+            // sourceCodeGithubcomToolStripMenuItem
+            // 
+            this.sourceCodeGithubcomToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sourceCodeGithubcomToolStripMenuItem.Image")));
+            this.sourceCodeGithubcomToolStripMenuItem.Name = "sourceCodeGithubcomToolStripMenuItem";
+            this.sourceCodeGithubcomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+            this.sourceCodeGithubcomToolStripMenuItem.Text = "Source code @ Github.com";
+            this.sourceCodeGithubcomToolStripMenuItem.Click += new System.EventHandler(this.OnSourceCodeGithubcomToolStripMenuItemClick);
+            // 
+            // weeklyReleasesPublicDomainWeeklycomToolStripMenuItem
+            // 
+            this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Name = "weeklyReleasesPublicDomainWeeklycomToolStripMenuItem";
+            this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+            this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Text = "&Weekly releases @ PublicDomainWeekly.com";
+            this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Click += new System.EventHandler(this.OnWeeklyReleasesPublicDomainWeeklycomToolStripMenuItemClick);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                                    this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem,
+                                    this.originalThreadDonationCodercomToolStripMenuItem,
+                                    this.sourceCodeGithubcomToolStripMenuItem,
+                                    this.toolStripSeparator2,
+                                    this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            // 
+            // originalThreadDonationCodercomToolStripMenuItem
+            // 
+            this.originalThreadDonationCodercomToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("originalThreadDonationCodercomToolStripMenuItem.Image")));
+            this.originalThreadDonationCodercomToolStripMenuItem.Name = "originalThreadDonationCodercomToolStripMenuItem";
+            this.originalThreadDonationCodercomToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+            this.originalThreadDonationCodercomToolStripMenuItem.Text = "&Original thread @ DonationCoder.com";
+            this.originalThreadDonationCodercomToolStripMenuItem.Click += new System.EventHandler(this.OnOriginalThreadDonationCodercomToolStripMenuItemClick);
+            // 
+            // alwaysOnTopToolStripMenuItem
+            // 
+            this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
+            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.alwaysOnTopToolStripMenuItem.Text = "&Always on top";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                                    this.alwaysOnTopToolStripMenuItem,
+                                    this.processSubfoldersToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "&Options";
+            this.optionsToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnOptionsToolStripMenuItemDropDownItemClicked);
+            // 
+            // processSubfoldersToolStripMenuItem
+            // 
+            this.processSubfoldersToolStripMenuItem.Checked = true;
+            this.processSubfoldersToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.processSubfoldersToolStripMenuItem.Name = "processSubfoldersToolStripMenuItem";
+            this.processSubfoldersToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.processSubfoldersToolStripMenuItem.Text = "&Process subfolders";
+            // 
+            // minimizeToolStripMenuItem
+            // 
+            this.minimizeToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
+            this.minimizeToolStripMenuItem.Visible = false;
+            // 
+            // mainMenuStrip
+            // 
+            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                                    this.minimizeToolStripMenuItem,
+                                    this.fileToolStripMenuItem,
+                                    this.optionsToolStripMenuItem,
+                                    this.helpToolStripMenuItem});
+            this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuStrip.Name = "mainMenuStrip";
+            this.mainMenuStrip.Size = new System.Drawing.Size(257, 24);
+            this.mainMenuStrip.TabIndex = 30;
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                                    this.newToolStripMenuItem,
+                                    this.openToolStripMenuItem,
+                                    this.toolStripSeparator,
+                                    this.saveToolStripMenuItem,
+                                    this.saveAsToolStripMenuItem,
+                                    this.toolStripSeparator1,
+                                    this.printToolStripMenuItem,
+                                    this.printPreviewToolStripMenuItem,
+                                    this.toolStripSeparator3,
+                                    this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
+            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.OnNewToolStripMenuItemClick);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
+            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OnOpenToolStripMenuItemClick);
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
+            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.OnSaveToolStripMenuItemClick);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveAsToolStripMenuItem.Text = "Save &As";
+            this.saveAsToolStripMenuItem.Visible = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Visible = false;
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
+            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printToolStripMenuItem.Text = "&Print";
+            this.printToolStripMenuItem.Visible = false;
+            // 
+            // printPreviewToolStripMenuItem
+            // 
+            this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
+            this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
+            this.printPreviewToolStripMenuItem.Visible = false;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnExitToolStripMenuItemClick);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.DefaultExt = "txt";
+            this.openFileDialog.Filter = "TXT Files|*.txt|All files (*.*)|*.*";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.DefaultExt = "txt";
+            this.saveFileDialog.Filter = "TXT Files|*.txt|All files (*.*)|*.*";
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(257, 276);
+            this.Controls.Add(this.mainTableLayoutPanel);
+            this.Controls.Add(this.mainStatusStrip);
+            this.Controls.Add(this.mainMenuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FileDateReplay";
+            this.mainTableLayoutPanel.ResumeLayout(false);
+            this.mainTableLayoutPanel.PerformLayout();
+            this.mainStatusStrip.ResumeLayout(false);
+            this.mainStatusStrip.PerformLayout();
+            this.mainMenuStrip.ResumeLayout(false);
+            this.mainMenuStrip.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
         private System.Windows.Forms.ToolStripStatusLabel collectedCountToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel collectedToolStripStatusLabel;

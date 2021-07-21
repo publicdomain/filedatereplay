@@ -58,6 +58,9 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnCollectFromFolderButtonClick(object sender, EventArgs e)
         {
+            // Reset selected path
+            this.folderBrowserDialog.SelectedPath = string.Empty;
+
             // Show folder browser dialog
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK && this.folderBrowserDialog.SelectedPath.Length > 0)
             {
@@ -111,6 +114,9 @@ namespace FileDateReplay
             // Declare replayed count
             int replayedCount = 0;
 
+            // Reset selected path
+            this.folderBrowserDialog.SelectedPath = string.Empty;
+
             // Show folder browser dialog
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK && this.folderBrowserDialog.SelectedPath.Length > 0)
             {
@@ -138,10 +144,10 @@ namespace FileDateReplay
                         replayedCount++;
                     }
                 }
-            }
 
-            // Update replayed count
-            this.replayedCountToolStripStatusLabel.Text = this.filePathDateDictionary.Count.ToString();
+                // Update replayed count
+                this.replayedCountToolStripStatusLabel.Text = replayedCount.ToString();
+            }
         }
 
         /// <summary>
@@ -151,8 +157,11 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnOpenToolStripMenuItemClick(object sender, EventArgs e)
         {
+            // Reset file name
+            this.openFileDialog.FileName = string.Empty;
+
             // Show open file dialog
-            if (this.openFileDialog.ShowDialog() == DialogResult.OK)
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK && this.openFileDialog.FileName.Length > 0)
             {
                 try
                 {
@@ -200,8 +209,8 @@ namespace FileDateReplay
                 return;
             }
 
-            // Set save dialog file name
-            this.saveFileDialog.FileName = this.collectionNameLabel.Text;
+            //Reset save file dialog
+            this.saveFileDialog.Reset();
 
             // Open save file dialog
             if (this.saveFileDialog.ShowDialog() == DialogResult.OK && this.saveFileDialog.FileName.Length > 0)
@@ -239,7 +248,22 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code    
+            // Reset file path date dictionary
+            this.filePathDateDictionary.Clear();
+
+            // Reset dialogs
+            this.folderBrowserDialog.Reset();
+            this.openFileDialog.Reset();
+            this.saveFileDialog.Reset();
+
+            // Reset text boxes
+            this.regexPatternTextBox.ResetText();
+            this.regexReplacementTextBox.ResetText();
+
+            // Reset labels
+            this.collectionNameLabel.Text = "Open or collect...";
+            this.collectedCountToolStripStatusLabel.Text = "0";
+            this.replayedCountToolStripStatusLabel.Text = "0";
         }
 
         /// <summary>
