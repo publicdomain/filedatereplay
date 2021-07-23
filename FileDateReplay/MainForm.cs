@@ -12,15 +12,23 @@ namespace FileDateReplay
     using System.Drawing;
     using System.Globalization;
     using System.IO;
+    using System.Reflection;
     using System.Text;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
+    using PublicDomain;
 
     /// <summary>
     /// Description of MainForm.
     /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Gets or sets the associated icon.
+        /// </summary>
+        /// <value>The associated icon.</value>
+        private Icon associatedIcon = null;
+
         /// <summary>
         /// The file path date dictionary.
         /// </summary>
@@ -33,6 +41,14 @@ namespace FileDateReplay
         {
             // The InitializeComponent() call is required for Windows Forms designer support.
             InitializeComponent();
+
+            /* Set icons */
+
+            // Set associated icon from exe file
+            this.associatedIcon = Icon.ExtractAssociatedIcon(typeof(MainForm).GetTypeInfo().Assembly.Location);
+
+            // Set public domain weekly tool strip menu item image
+            this.weeklyReleasesPublicDomainWeeklycomToolStripMenuItem.Image = this.associatedIcon.ToBitmap();
         }
 
         /// <summary>
@@ -130,6 +146,13 @@ namespace FileDateReplay
                     // Set relative file path
                     string relativeFilePath = filePath.Remove(0, selectedPath.Length + (selectedPath[selectedPath.Length - 1] == Path.DirectorySeparatorChar ? 0 : 1));
 
+                    // Check for regex replace
+                    if (this.regexPatternTextBox.TextLength > 0 && this.regexReplacementTextBox.TextLength > 0)
+                    {
+                        // Enforce regex replace
+                        relativeFilePath = Regex.Replace(relativeFilePath, this.regexPatternTextBox.Text, this.regexReplacementTextBox.Text);
+                    }
+
                     // Check for a match
                     if (this.filePathDateDictionary.ContainsKey(relativeFilePath))
                     {
@@ -210,8 +233,8 @@ namespace FileDateReplay
                 return;
             }
 
-            //Reset save file dialog
-            this.saveFileDialog.Reset();
+            // Reset save file dialog
+            this.saveFileDialog.FileName = string.Empty;
 
             // Open save file dialog
             if (this.saveFileDialog.ShowDialog() == DialogResult.OK && this.saveFileDialog.FileName.Length > 0)
@@ -249,13 +272,16 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
+            //#
+            MessageBox.Show(Regex.Replace("File.jpg", this.regexPatternTextBox.Text, this.regexReplacementTextBox.Text));
+
             // Reset file path date dictionary
             this.filePathDateDictionary.Clear();
 
             // Reset dialogs
-            this.folderBrowserDialog.Reset();
-            this.openFileDialog.Reset();
-            this.saveFileDialog.Reset();
+            this.folderBrowserDialog.SelectedPath = string.Empty;
+            this.openFileDialog.FileName = string.Empty;
+            this.saveFileDialog.FileName = string.Empty;
 
             // Reset text boxes
             this.regexPatternTextBox.ResetText();
@@ -307,7 +333,52 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnAboutToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Set license text
+            var licenseText = $"CC0 1.0 Universal (CC0 1.0) - Public Domain Dedication{Environment.NewLine}" +
+                $"https://creativecommons.org/publicdomain/zero/1.0/legalcode{Environment.NewLine}{Environment.NewLine}" +
+                $"Libraries and icons have separate licenses.{Environment.NewLine}{Environment.NewLine}" +
+                $"Replay Icon by Clker-Free-Vector-Images - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/users/clker-free-vector-images-3736/{Environment.NewLine}{Environment.NewLine}" +
+                $"Patreon icon used according to published brand guidelines{Environment.NewLine}" +
+                $"https://www.patreon.com/brand{Environment.NewLine}{Environment.NewLine}" +
+                $"GitHub mark icon used according to published logos and usage guidelines{Environment.NewLine}" +
+                $"https://github.com/logos{Environment.NewLine}{Environment.NewLine}" +
+                $"DonationCoder icon used with permission{Environment.NewLine}" +
+                $"https://www.donationcoder.com/forum/index.php?topic=48718{Environment.NewLine}{Environment.NewLine}" +
+                $"PublicDomain icon is based on the following source images:{Environment.NewLine}{Environment.NewLine}" +
+                $"Bitcoin by GDJ - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/vectors/bitcoin-digital-currency-4130319/{Environment.NewLine}{Environment.NewLine}" +
+                $"Letter P by ArtsyBee - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/illustrations/p-glamour-gold-lights-2790632/{Environment.NewLine}{Environment.NewLine}" +
+                $"Letter D by ArtsyBee - Pixabay License{Environment.NewLine}" +
+                $"https://pixabay.com/illustrations/d-glamour-gold-lights-2790573/{Environment.NewLine}{Environment.NewLine}";
+
+            // Prepend sponsors
+            licenseText = $"RELEASE SPONSORS:{Environment.NewLine}{Environment.NewLine}* Jesse Reichler{Environment.NewLine}{Environment.NewLine}=========={Environment.NewLine}{Environment.NewLine}" + licenseText;
+
+            // Set title
+            string programTitle = typeof(MainForm).GetTypeInfo().Assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+
+            // Set version for generating semantic version 
+            Version version = typeof(MainForm).GetTypeInfo().Assembly.GetName().Version;
+
+            // Set about form
+            var aboutForm = new AboutForm(
+                $"About {programTitle}",
+                $"{programTitle} {version.Major}.{version.Minor}.{version.Build}",
+                $"Made for: Lolipop Jones{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #204, Week #29 @ July 23, 2021",
+                licenseText,
+                this.Icon.ToBitmap())
+            {
+                // Set about form icon
+                Icon = this.associatedIcon,
+
+                // Set always on top
+                TopMost = this.TopMost
+            };
+
+            // Show about form
+            aboutForm.ShowDialog();
         }
 
         /// <summary>
