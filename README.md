@@ -8,7 +8,7 @@ Made for **Lolipop Jones** from [donationcoder.com](https://www.donationcoder.co
 
 Original thread: [Need to convert audio files while keeping original file dates](https://www.donationcoder.com/forum/index.php?topic=51393.0)
 
-Source code: [EnfolderSendTo @ GitHub](https://github.com/publicdomain/enfolder-sendto)
+Source code: [FileDateReplay @ GitHub](https://github.com/publicdomain/filedatereplay)
 
 Targets Microsoft .NET framework v4.5 (Native to Windows 8+)
 
