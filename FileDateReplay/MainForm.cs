@@ -118,6 +118,8 @@ namespace FileDateReplay
         /// <param name="e">Event arguments.</param>
         private void OnReplayOnFolderButtonClick(object sender, EventArgs e)
         {
+            /* TODO @"\.wav$" => ".mp3" [Regex matching wav to mp3] */
+
             // Check there's something to work with
             if (this.filePathDateDictionary.Count == 0)
             {
@@ -137,6 +139,39 @@ namespace FileDateReplay
             // Show folder browser dialog
             if (this.folderBrowserDialog.ShowDialog() == DialogResult.OK && this.folderBrowserDialog.SelectedPath.Length > 0)
             {
+                /* Regex replacement */
+
+                // Check for regex replace
+                if (this.regexPatternTextBox.TextLength > 0 && this.regexReplacementTextBox.TextLength > 0)
+                {
+                    // Replace dictionary
+                    var replaceDictionary = new Dictionary<string, string>();
+
+                    // Iterate file path date dictionary keys
+                    foreach (var key in this.filePathDateDictionary.Keys)
+                    {
+                        // Regex replace
+                        string replacedKey = Regex.Replace(key, this.regexPatternTextBox.Text, this.regexReplacementTextBox.Text);
+
+                        // Check for a match
+                        if (replacedKey != key)
+                        {
+                            // Add replaced to dictionary
+                            replaceDictionary.Add(key, replacedKey);
+                        }
+                    }
+
+                    // Iterate keys in replace dictionary
+                    foreach (var key in replaceDictionary.Keys)
+                    {
+                        // Add replaced key
+                        this.filePathDateDictionary.Add(replaceDictionary[key], new KeyValuePair<DateTime, DateTime>(this.filePathDateDictionary[key].Key, this.filePathDateDictionary[key].Value));
+
+                        // Remove current key
+                        this.filePathDateDictionary.Remove(key);
+                    }
+                }
+
                 // Set selected path as string
                 string selectedPath = this.folderBrowserDialog.SelectedPath;
 
@@ -146,12 +181,7 @@ namespace FileDateReplay
                     // Set relative file path
                     string relativeFilePath = filePath.Remove(0, selectedPath.Length + (selectedPath[selectedPath.Length - 1] == Path.DirectorySeparatorChar ? 0 : 1));
 
-                    // Check for regex replace
-                    if (this.regexPatternTextBox.TextLength > 0 && this.regexReplacementTextBox.TextLength > 0)
-                    {
-                        // Enforce regex replace
-                        relativeFilePath = Regex.Replace(relativeFilePath, this.regexPatternTextBox.Text, this.regexReplacementTextBox.Text);
-                    }
+                    /*Act upon files  */
 
                     // Check for a match
                     if (this.filePathDateDictionary.ContainsKey(relativeFilePath))
