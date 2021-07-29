@@ -17,8 +17,8 @@ Notes:
 v0.1.0:
 
 - Collect top folder or subfolders.
-- Replay based on active collection or loaded one.
-- Load collection to file with dates.
+- Save collection to text file with dates.
+- Replay based on current collected folder or loaded file.
 - Regex match and replace.
 
 Day #209, Week #30 @ July 28, 2021
